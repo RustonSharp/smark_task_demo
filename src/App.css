@@ -1,0 +1,131 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-body {
+  display: flex;
+  flex: 1;
+  position: relative;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 0;
+  transition: margin-left 0.3s ease;
+  min-height: calc(100vh - 60px);
+  overflow-x: auto;
+}
+
+.main-content.sidebar-open {
+  margin-left: 0;
+}
+
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* 桌面端样式 */
+@media (min-width: 769px) {
+  .main-content {
+    margin-left: 250px;
+  }
+  
+  .main-content.sidebar-open {
+    margin-left: 250px;
+  }
+}
+
+/* 移动端样式 */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 16px;
+    margin-left: 0;
+  }
+  
+  .content-wrapper {
+    padding: 0;
+  }
+}
+
+/* 响应式网格布局 */
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-1 {
+  grid-template-columns: 1fr;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    gap: 16px;
+  }
+  
+  .grid-4,
+  .grid-3,
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 页面标题样式 */
+.page-header {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.page-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+  }
+  
+  .page-title {
+    font-size: 24px;
+  }
+  
+  .page-subtitle {
+    font-size: 14px;
+  }
+}

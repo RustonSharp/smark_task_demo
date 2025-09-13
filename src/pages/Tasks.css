@@ -1,0 +1,720 @@
+/* Tasks页面样式 */
+.tasks {
+  padding: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* 搜索框和过滤器样式 */
+.search-box {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  z-index: 1;
+}
+
+.search-input {
+  width: 100% !important;
+  padding: 0.75rem 0.75rem 0.75rem 2.5rem !important;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px var(--primary-color-alpha);
+}
+
+.filter-box {
+  position: relative;
+  min-width: 150px;
+}
+
+.filter-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.filter-select {
+  width: 100% !important;
+  padding: 0.75rem 0.75rem 0.75rem 2.5rem !important;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23666" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 0.65em auto;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px var(--primary-color-alpha);
+}
+
+.filter-select option {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 8px 12px;
+}
+
+.filter-select option:hover {
+  background: var(--accent-bg);
+  color: var(--primary-color);
+}
+
+/* 工具栏样式 */
+.tasks-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.toolbar-left {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+  min-width: 300px;
+  align-items: center;
+}
+
+.toolbar-right {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.filter-group {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* 视图切换按钮 */
+.view-toggle {
+  display: flex;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.view-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-btn.active {
+  background: var(--primary-color);
+  color: white;
+}
+
+.view-btn:hover:not(.active) {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+/* 任务统计样式 */
+.tasks-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* 任务列表样式 */
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.task-item {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.task-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+.task-header {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.task-status {
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+  margin-top: 0.125rem;
+}
+
+.task-status:hover {
+  background: var(--bg-tertiary);
+}
+
+.status-icon {
+  transition: all 0.2s ease;
+}
+
+.status-icon.completed {
+  color: #22c55e;
+}
+
+.status-icon.in-progress {
+  color: var(--primary-color);
+}
+
+.status-icon.pending {
+  color: var(--text-secondary);
+}
+
+.status-icon.overdue {
+  color: #ef4444;
+}
+
+.task-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.task-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
+}
+
+.task-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.task-badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.task-description {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.task-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.meta-left,
+.meta-right {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.task-progress {
+  margin-bottom: 1rem;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.progress-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.progress-percentage {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-tertiary);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.task-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.task-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  background: var(--primary-color-alpha);
+  color: var(--primary-color);
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid var(--primary-color);
+}
+
+.task-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+/* 优先级徽章 */
+.priority-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.priority-success {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.priority-warning {
+  background: rgba(251, 191, 36, 0.1);
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.2);
+}
+
+.priority-danger {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* 看板视图样式 */
+.kanban-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.kanban-column {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  min-height: 500px;
+}
+
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.column-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.column-count {
+  background: var(--primary-color-alpha);
+  color: var(--primary-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.column-tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.kanban-task {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.kanban-task:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+}
+
+.task-header-kanban {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+  gap: 0.5rem;
+}
+
+.task-title-kanban {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.task-description-kanban {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  margin: 0 0 0.75rem 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.task-meta-kanban {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  gap: 0.5rem;
+}
+
+.task-meta-kanban .meta-item {
+  font-size: 0.625rem;
+}
+
+.task-progress-kanban {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.task-progress-kanban .progress-bar {
+  flex: 1;
+  height: 4px;
+}
+
+.progress-text {
+  font-size: 0.625rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.task-tags-kanban {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.task-tags-kanban .task-tag {
+  font-size: 0.625rem;
+  padding: 0.125rem 0.375rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .tasks {
+    padding: 1rem;
+  }
+
+  .tasks-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .toolbar-left {
+    flex-direction: column;
+    min-width: auto;
+  }
+
+  .filter-group {
+    flex-direction: column;
+  }
+
+  .toolbar-right {
+    justify-content: space-between;
+  }
+
+  .task-header {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .task-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .task-badges {
+    align-self: flex-start;
+  }
+
+  .task-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .meta-left,
+  .meta-right {
+    flex-wrap: wrap;
+  }
+
+  .task-actions {
+    flex-direction: row;
+    align-self: flex-start;
+  }
+
+  .kanban-board {
+    grid-template-columns: 1fr;
+  }
+
+  .kanban-column {
+    min-height: auto;
+  }
+
+  .tasks-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .tasks-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .meta-left,
+  .meta-right {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .task-item {
+    padding: 1rem;
+  }
+
+  .kanban-task {
+    padding: 0.75rem;
+  }
+
+  .view-toggle {
+    width: 100%;
+  }
+
+  .view-btn {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+/* 动画效果 */
+.tasks.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 拖拽效果（为未来功能预留） */
+.kanban-task.dragging {
+  opacity: 0.5;
+  transform: rotate(5deg);
+}
+
+.kanban-column.drag-over {
+  background: var(--primary-color-alpha);
+  border-color: var(--primary-color);
+}
+
+/* 任务状态指示器 */
+.task-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  border-radius: 0.75rem 0 0 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.task-item[data-status="completed"]::before {
+  background: #22c55e;
+}
+
+.task-item[data-status="in-progress"]::before {
+  background: var(--primary-color);
+}
+
+.task-item[data-status="pending"]::before {
+  background: #fbbf24;
+}
+
+.task-item[data-status="overdue"]::before {
+  background: #ef4444;
+}
+
+/* 悬停效果增强 */
+.task-item:hover .task-title {
+  color: var(--primary-color);
+}
+
+.kanban-task:hover .task-title-kanban {
+  color: var(--primary-color);
+}
+
+/* 加载状态 */
+.tasks-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: var(--text-secondary);
+}
+
+/* 空状态 */
+.tasks-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-secondary);
+}
+
+.tasks-empty h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-primary);
+}
+
+.tasks-empty p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+/* 深色主题适配 */
+@media (prefers-color-scheme: dark) {
+  .priority-success {
+    background: rgba(34, 197, 94, 0.15);
+  }
+  
+  .priority-warning {
+    background: rgba(251, 191, 36, 0.15);
+  }
+  
+  .priority-danger {
+    background: rgba(239, 68, 68, 0.15);
+  }
+
+  .task-tag {
+    background: rgba(59, 130, 246, 0.15);
+  }
+}
